@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<a class="absolute btn btn-accent btn-outline" href="{{ path('home') }}">Home</a>
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 via-blue-100 to-red-900 p-6">
+  <div class="card w-full max-w-md bg-base-100 shadow-xl rounded-lg p-8">
+    <h2 class="text-3xl font-bold text-center mb-6 text-gray-900 dark:text-gray-100">Create your account</h2>
+    {% include 'partials/flashes.html.twig' %}
+    {{ form_start(form, {'attr': {'data-turbo': 'false', 'class': 'space-y-6'}}) }}
+    <div class="form-control w-full">
+      {{ form_label(form.email, '', {'label_attr': {'class': 'label-text text-gray-700 dark:text-gray-300'}}) }}
+      {{ form_widget(form.email, {'attr': { 'placeholder' : 'your.email@example.com', 'class' : 'input input-bordered w-full'}}) }}
+    </div>
+    <div class="form-control w-full">
+      {{ form_label(form.username, '', {'label_attr': {'class': 'label-text text-gray-700 dark:text-gray-300'}}) }}
+      {{ form_widget(form.username, {'attr': { 'placeholder' : 'Username', 'class' : 'input input-bordered w-full'}}) }}
+    </div>
+    <div class="form-control w-full">
+      {{ form_label(form.password.first, '', {'label_attr': {'class': 'label-text text-gray-700 dark:text-gray-300'}}) }}
+      {{ form_widget(form.password.first, {'attr': { 'placeholder' : 'Password', 'class' : 'input input-bordered w-full'}}) }}
+    </div>
+    <div class="form-control w-full">
+      {{ form_label(form.password.second, '', {'label_attr': {'class': 'label-text text-gray-700 dark:text-gray-300'}}) }}
+      {{ form_widget(form.password.second, {'attr': { 'placeholder' : 'Confirm Password', 'class' : 'input input-bordered w-full'}}) }}
+    </div>
+    <div class="form-control mt-6">
+      {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary w-full'}}) }}
+    </div>
+    {{ form_end(form) }}
+    <p class="text-center text-sm mt-4 text-gray-600 dark:text-gray-400">
+      Already registered?
+      <a href="{{ path('login') }}" class="link link-primary font-semibold">Sign in here</a>
+    </p>
+  </div>
+</div>
+
+{% endblock %}

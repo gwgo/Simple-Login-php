@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "../vendor/daisyui/daisyui.index.js";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}

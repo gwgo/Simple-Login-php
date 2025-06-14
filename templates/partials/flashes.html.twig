@@ -1,0 +1,24 @@
+{% for  label, messages in app.flashes %}
+    {% if label == 'success' %}
+        {% set label = 'alert-success' %}
+        {% set svg = include('partials/alert_svg/success.html.twig') %}
+    {% elseif label == 'error' %}
+        {% set label = 'alert-error' %}
+        {% set svg = include('partials/alert_svg/error.html.twig') %}
+    {% elseif label == 'warning' %}
+        {% set label = 'alert-warning' %}
+        {% set svg = include('partials/alert_svg/warning.html.twig') %}
+    {% elseif label == 'info' %}
+        {% set label = 'alert-info' %}
+        {% set svg = include('partials/alert_svg/info.html.twig') %}
+    {% else %}
+        {% set label = 'alert-secondary' %}
+        {% set svg = include('partials/alert_svg/default.html.twig') %}
+    {% endif %}
+        {% for message in messages %}
+        <div class="alert {{ label }} mb-4">
+            {{ svg | raw }}
+            <span>{{ message }}</span>
+        </div>
+    {% endfor %}
+{% endfor %}
