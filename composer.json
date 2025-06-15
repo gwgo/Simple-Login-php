@@ -77,6 +77,7 @@
         "symfony/polyfill-php82": "*"
     },
     "scripts": {
+        "tailwind": "php bin/console tailwind:build --watch",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
